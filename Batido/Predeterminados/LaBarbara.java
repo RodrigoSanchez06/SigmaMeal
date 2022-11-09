@@ -1,15 +1,16 @@
-package Batido;
+package Batido.Predeterminados;
 
-import Batido.Ingredientes.Frutas.*;
-import Batido.Ingredientes.Scoops.*;
-import Batido.Ingredientes.Cereales.*;
+import Batido.Ingredientes.Frutas.Mamey;
+import Batido.Ingredientes.Scoops.Fresa;
+import Batido.Leche.LecheDeslactosada;
+import Batido.Batido;
+import Batido.Ingredientes.Cereales.Granola;
 
 public class LaBarbara extends Batido {
 
-    Batido batido;
+    Batido batido = new LecheDeslactosada();
 
     public LaBarbara() {
-        batido = new LecheDeslactosada();
         batido = new Fresa(batido);
         batido = new Mamey(batido);
         batido = new Granola(batido);
@@ -42,6 +43,11 @@ public class LaBarbara extends Batido {
     public double protein() {
 
         return batido.protein();
+    }
+
+    @Override
+    public String getDescripcion(){
+        return batido.getDescripcion();
     }
 
 }

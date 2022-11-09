@@ -1,4 +1,6 @@
-package Batido;
+package Batido.Leche;
+
+import Batido.Batido;
 
 public class LecheProteica extends Batido {
     /**

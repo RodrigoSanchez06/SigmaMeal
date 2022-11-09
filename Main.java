@@ -1,5 +1,5 @@
 import Batido.Batido;
-import Batido.LaBarbara;
+import Batido.Predeterminados.*;;
 
 public class Main {
     public static void main(String[] args) {

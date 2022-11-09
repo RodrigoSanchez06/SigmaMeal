@@ -1,7 +1,7 @@
 package Batido;
 
 public abstract class Batido {
-    String descripcion = "Batido", nombre;
+    protected String descripcion = "Batido ", nombre;
 
     /**
      * Devuelve la descripción del batido preparado.
