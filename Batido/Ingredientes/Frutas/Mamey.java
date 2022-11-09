@@ -37,7 +37,7 @@ public class Mamey extends Ingrediente {
      */
     @Override
     public double calories() {
-        return 431;
+        return 431 + batido.calories();
     }
 
     /**
@@ -47,7 +47,7 @@ public class Mamey extends Ingrediente {
      */
     @Override
     public double fat() {
-        return 4.2;
+        return 4.2 + batido.fat();
     }
 
     /**
@@ -57,7 +57,7 @@ public class Mamey extends Ingrediente {
      */
     @Override
     public double carbh() {
-        return 105.7;
+        return 105.7 + batido.carbh();
     }
 
     /**
@@ -67,6 +67,16 @@ public class Mamey extends Ingrediente {
      */
     @Override
     public double protein() {
-        return 4.2;
+        return 4.2 + batido.protein();
+    }
+
+    /**
+     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * 
+     * @return double con los milititros contenida con leche deslactosada
+     */
+    @Override
+    public double portion() {
+        return 100 + batido.portion();
     }
 }

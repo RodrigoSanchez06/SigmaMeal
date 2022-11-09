@@ -37,7 +37,7 @@ public class FresaNatural extends Ingrediente {
      */
     @Override
     public double calories() {
-        return 49;
+        return 49 + batido.calories();
     }
 
     /**
@@ -47,7 +47,7 @@ public class FresaNatural extends Ingrediente {
      */
     @Override
     public double fat() {
-        return 0.4;
+        return 0.4 + batido.fat();
     }
 
     /**
@@ -57,7 +57,7 @@ public class FresaNatural extends Ingrediente {
      */
     @Override
     public double carbh() {
-        return 11.6;
+        return 11.6 + batido.carbh();
     }
 
     /**
@@ -67,6 +67,16 @@ public class FresaNatural extends Ingrediente {
      */
     @Override
     public double protein() {
-        return 1.2;
+        return 1.2 + batido.protein();
+    }
+
+    /**
+     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * 
+     * @return double con los milititros contenida con leche deslactosada
+     */
+    @Override
+    public double portion() {
+        return 30 + batido.portion();
     }
 }

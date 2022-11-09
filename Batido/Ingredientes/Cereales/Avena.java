@@ -47,7 +47,7 @@ public class Avena extends Ingrediente {
      */
     @Override
     public double fat() {
-        return 6.9 + batido.calories();
+        return 6.9 + batido.fat();
     }
 
     /**
@@ -68,5 +68,15 @@ public class Avena extends Ingrediente {
     @Override
     public double protein() {
         return 16.8 + batido.protein();
+    }
+
+    /**
+     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * 
+     * @return double con los milititros contenida con leche deslactosada
+     */
+    @Override
+    public double portion() {
+        return 30 + batido.portion();
     }
 }
