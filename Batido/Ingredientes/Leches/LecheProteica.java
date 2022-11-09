@@ -1,4 +1,6 @@
-package Batido;
+package Batido.Ingredientes.Leches;
+
+import Batido.Batido;
 
 public class LecheProteica extends Batido {
     /**
@@ -56,5 +58,15 @@ public class LecheProteica extends Batido {
     @Override
     public double protein() {
         return 17.8;
+    }
+
+    /**
+     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * 
+     * @return double con los milititros contenida con leche deslactosada
+     */
+    @Override
+    public double portion() {
+        return 300;
     }
 }

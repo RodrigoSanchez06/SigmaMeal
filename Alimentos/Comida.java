@@ -1,7 +1,7 @@
-package Batido;
+package Alimentos;
 
-public abstract class Batido {
-    protected String descripcion = "Batido";
+public abstract class Comida {
+    protected String descripcion = "Comida";
     String nombre;
 
     /**
@@ -49,10 +49,9 @@ public abstract class Batido {
     public abstract double protein();
 
     /**
-     * Devuelve el total de gramos de la comida
+     * devuelve el total de gramos de la comida
      * 
-     * @return double del total de gramos de la comida
+     * @return devuelve el total de gramos de la comida
      */
     public abstract double portion();
-
 }
