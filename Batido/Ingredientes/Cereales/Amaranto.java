@@ -3,9 +3,16 @@ package Batido.Ingredientes.Cereales;
 import Batido.Batido;
 import Batido.Ingredientes.Ingrediente;
 
+/**
+ * Clase que representa al ingrediente 
+ */
 public class Amaranto extends Ingrediente {
     Batido batido;
 
+    /**
+     * Constructor que aplica a un batido el ingrediente amaranto.
+     * @param batido batido al que se le agregará el ingrediente.
+     */
     public Amaranto(Batido batido) {
         this.batido = batido;
     }
