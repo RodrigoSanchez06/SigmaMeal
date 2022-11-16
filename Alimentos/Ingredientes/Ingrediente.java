@@ -2,6 +2,9 @@ package Alimentos.Ingredientes;
 
 import Alimentos.Comida;
 
+/**
+ * Clase abstra que representa a un ingrediente de algun alimento.
+ */
 public abstract class Ingrediente extends Comida {
     /**
      * devuelve la descripción del batido con el ingrediente añadido.

@@ -4,17 +4,23 @@ import Alimentos.Ingredientes.Ingrediente;
 
 import Alimentos.Comida;
 
+/**
+ * Clase que representa al ingrediente Brocoli y extiende de comida.
+ */
 public class Brocoli extends Ingrediente {
     Comida comida;
 
+    /**
+     * Constructor por defecto del ingrediente Brocoli.
+     */
     public Brocoli(Comida comida) {
         this.comida = comida;
     }
 
     /**
-     * Devuelve la descripcion de la comida con el ingrediente añadido
+     * Devuelve la descripcion de la comida con el ingrediente añadido.
      * 
-     * @return Descripcion de la comida añadiendo el ingrediente
+     * @return Descripcion de la comida añadiendo el ingrediente.
      */
     @Override
     public String getDescripcion() {
@@ -22,10 +28,9 @@ public class Brocoli extends Ingrediente {
     }
 
     /**
-     * Devuelve el costo de la comida con el brocoli
+     * Devuelve el costo de la comida con el brocoli.
      * 
-     * 
-     * @return double del costo de la comida con el brocoli
+     * @return double del costo de la comida con el brocoli.
      * 
      */
     @Override
@@ -34,10 +39,9 @@ public class Brocoli extends Ingrediente {
     }
 
     /**
-     * Devuelve las calorias totales de la comida con el brocoli
+     * Devuelve las calorias totales de la comida con el brocoli.
      * 
-     * 
-     * @return double del total de calorias de la comida con el brocoli
+     * @return double del total de calorias de la comida con el brocoli.
      * 
      */
     @Override
@@ -46,10 +50,9 @@ public class Brocoli extends Ingrediente {
     }
 
     /**
-     * Devuelve las grasas totales de la comida con el brocoli
+     * Devuelve las grasas totales de la comida con el brocoli.
      * 
-     * 
-     * @return double del total de grasas de la comida con el brocoli
+     * @return double del total de grasas de la comida con el brocoli.
      * 
      */
     @Override
@@ -58,10 +61,9 @@ public class Brocoli extends Ingrediente {
     }
 
     /**
-     * Devuelve los carbohidratos totales de la comida con el brocoli
+     * Devuelve los carbohidratos totales de la comida con el brocoli.
      * 
-     * 
-     * @return double del total de caloritas de la comida con el brocoli
+     * @return double del total de caloritas de la comida con el brocoli.
      * 
      */
     @Override

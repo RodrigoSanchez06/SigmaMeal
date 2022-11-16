@@ -4,17 +4,23 @@ import Alimentos.Ingredientes.Ingrediente;
 
 import Alimentos.Comida;
 
+/**
+ * Clase que representa al ingrediente Chayote y extiende de comida.
+ */
 public class Chayote extends Ingrediente {
     Comida comida;
 
+    /**
+     * Constructor por defecto del ingrediente Chayote.
+     */
     public Chayote(Comida comida) {
         this.comida = comida;
     }
 
     /**
-     * Devuelve la descripcion de la comida con el ingrediente añadido
+     * Devuelve la descripcion de la comida con el ingrediente añadido.
      * 
-     * @return Descripcion de la comida añadiendo el ingrediente
+     * @return Descripcion de la comida añadiendo el ingrediente.
      */
     @Override
     public String getDescripcion() {
@@ -22,10 +28,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve el costo de la comida con el arroz
+     * Devuelve el costo de la comida con el Chayote.
      * 
-     * 
-     * @return double del costo de la comida con el arroz
+     * @return double del costo de la comida con el Chayote.
      * 
      */
     @Override
@@ -34,10 +39,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve las calorias totales de la comida con el arroz
+     * Devuelve las calorias totales de la comida con el Chayote.
      * 
-     * 
-     * @return double del total de calorias de la comida con el arroz
+     * @return double del total de calorias de la comida con el Chayote.
      * 
      */
     @Override
@@ -46,10 +50,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve las grasas totales de la comida con el arroz
+     * Devuelve las grasas totales de la comida con el Chayote.
      * 
-     * 
-     * @return double del total de grasas de la comida con el arroz
+     * @return double del total de grasas de la comida con el Chayote.
      * 
      */
     @Override
@@ -58,10 +61,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve los carbohidratos totales de la comida con el arroz
+     * Devuelve los carbohidratos totales de la comida con el Chayote.
      * 
-     * 
-     * @return double del total de caloritas de la comida con el arroz
+     * @return double del total de caloritas de la comida con el Chayote.
      * 
      */
     @Override
@@ -70,9 +72,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve la proteina total de la comida con el arroz
+     * Devuelve la proteina total de la comida con el Chayote.
      * 
-     * @return double del total de proteina de la comida con el arroz
+     * @return double del total de proteina de la comida con el Chayote.
      */
     @Override
     public double protein() {
@@ -80,9 +82,9 @@ public class Chayote extends Ingrediente {
     }
 
     /**
-     * Devuelve el total de gramos de la comida
+     * Devuelve el total de gramos de la comida.
      * 
-     * @return double del total de gramos de la comida
+     * @return double del total de gramos de la comida.
      */
     @Override
     public double portion() {
