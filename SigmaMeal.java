@@ -62,7 +62,7 @@ public class SigmaMeal {
         }
     }
 
-    public Iterator<Comida> iteradorComidasPredterminadas(){
+    public static  Iterator<Comida> iteradorComidasPredterminadas(){
         LinkedList<Comida> temp = new LinkedList<>();
         temp.add(new Carnivoro());
         temp.add(new Ligero());
