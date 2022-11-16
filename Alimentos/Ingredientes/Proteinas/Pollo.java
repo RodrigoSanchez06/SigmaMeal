@@ -3,17 +3,23 @@ package Alimentos.Ingredientes.Proteinas;
 import Alimentos.Comida;
 import Alimentos.Ingredientes.Ingrediente;
 
+/**
+ * Clase que representa al ingrediente Pollo y extiende de comida.
+ */
 public class Pollo extends Ingrediente {
     Comida comida;
 
+    /**
+     * Constructor por defecto del ingrediente Pollo.
+     */
     public Pollo(Comida comida) {
         this.comida = comida;
     }
 
     /**
-     * Devuelve la descripcion de la comida con el ingrediente añadido
+     * Devuelve la descripcion de la comida con el ingrediente añadido.
      * 
-     * @return Descripcion de la comida añadiendo el ingrediente
+     * @return Descripcion de la comida añadiendo el ingrediente.
      */
     @Override
     public String getDescripcion() {
@@ -21,10 +27,9 @@ public class Pollo extends Ingrediente {
     }
 
     /**
-     * Devuelve el costo de la comida con el pollo
+     * Devuelve el costo de la comida con el pollo.
      * 
-     * 
-     * @return double del costo de la comida con el pollo
+     * @return double del costo de la comida con el pollo.
      * 
      */
     @Override
@@ -33,10 +38,9 @@ public class Pollo extends Ingrediente {
     }
 
     /**
-     * Devuelve las calorias totales de la comida con el pollo
+     * Devuelve las calorias totales de la comida con el pollo.
      * 
-     * 
-     * @return double del total de calorias de la comida con el pollo
+     * @return double del total de calorias de la comida con el pollo.
      * 
      */
     @Override
@@ -45,10 +49,9 @@ public class Pollo extends Ingrediente {
     }
 
     /**
-     * Devuelve las grasas totales de la comida con el pollo
+     * Devuelve las grasas totales de la comida con el pollo.
      * 
-     * 
-     * @return double del total de grasas de la comida con el pollo
+     * @return double del total de grasas de la comida con el pollo.
      * 
      */
     @Override
@@ -57,10 +60,9 @@ public class Pollo extends Ingrediente {
     }
 
     /**
-     * Devuelve los carbohidratos totales de la comida con el pollo
+     * Devuelve los carbohidratos totales de la comida con el pollo.
      * 
-     * 
-     * @return double del total de caloritas de la comida con el pollo
+     * @return double del total de caloritas de la comida con el pollo.
      * 
      */
     @Override
@@ -69,9 +71,9 @@ public class Pollo extends Ingrediente {
     }
 
     /**
-     * Devuelve la proteina total de la comida con el pollo
+     * Devuelve la proteina total de la comida con el pollo.
      * 
-     * @return double del total de proteina de la comida con el pollo
+     * @return double del total de proteina de la comida con el pollo.
      */
     @Override
     public double protein() {

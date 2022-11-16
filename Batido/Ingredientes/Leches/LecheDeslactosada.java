@@ -2,6 +2,9 @@ package Batido.Ingredientes.Leches;
 
 import Batido.Batido;
 
+/**
+ * Clase que representa al ingrediente LecheDeslactosada.
+ */
 public class LecheDeslactosada extends Batido {
     /**
      * Constructor de LecheDeslactosada, añade descripción.
@@ -11,9 +14,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el costo del batido con leche deslactosada
+     * Devuelve el costo del batido con leche deslactosada.
      * 
-     * @return double con el costo del batido con leche deslactosada
+     * @return double con el costo del batido con leche deslactosada.
      */
     @Override
     public double cost() {
@@ -21,9 +24,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el numero de calorias del batido con leche deslactosada
+     * Devuelve el numero de calorias del batido con leche deslactosada.
      * 
-     * @return double con el numero de calorias con leche deslactosada
+     * @return double con el numero de calorias con leche deslactosada.
      */
     @Override
     public double calories() {
@@ -31,9 +34,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el numero de grasas del batido con leche deslactosada
+     * Devuelve el numero de grasas del batido con leche deslactosada.
      * 
-     * @return double con el numero de grasa total con leche deslactosada
+     * @return double con el numero de grasa total con leche deslactosada.
      */
     @Override
     public double fat() {
@@ -41,9 +44,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el numero de carbohidratos del batido con leche deslactosada
+     * Devuelve el numero de carbohidratos del batido con leche deslactosada.
      * 
-     * @return double con el numero de carbohidratos con leche deslactosada
+     * @return double con el numero de carbohidratos con leche deslactosada.
      */
     @Override
     public double carbh() {
@@ -51,9 +54,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el numero de proteinas del batido con leche deslactosada
+     * Devuelve el numero de proteinas del batido con leche deslactosada.
      * 
-     * @return double con el numero de proteina contenida con leche deslactosada
+     * @return double con el numero de proteina contenida con leche deslactosada.
      */
     @Override
     public double protein() {
@@ -61,9 +64,9 @@ public class LecheDeslactosada extends Batido {
     }
 
     /**
-     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * Devuelve el numero de mililitros del batido con leche deslactosada.
      * 
-     * @return double con los milititros contenida con leche deslactosada
+     * @return double con los milititros contenida con leche deslactosada.
      */
     @Override
     public double portion() {

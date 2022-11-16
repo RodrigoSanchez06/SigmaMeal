@@ -2,6 +2,9 @@ package Cliente;
 
 import java.io.Serializable;
 
+/**
+ * Clase que representa a un Cliente dado de alta en SigmaMeal
+ */
 public class Cliente implements Serializable {
 
     private String nombreUsuario;
@@ -10,9 +13,21 @@ public class Cliente implements Serializable {
     private int edad;
     private int estatura;
     private double peso;
-    private Cuenta cuentaAsociada;
+    private Cuenta cuentaAsociada; // Cuenta de puntos asociado.
     private int estrellas; // Por cada 10 pesos es una estrella.
 
+    /**
+     * Constructor de un Cliente
+     * 
+     * @param nombreUsuario  nombre de usuario del cliente.
+     * @param password       contraseña del cliente.
+     * @param nombre         nombre del cliente.
+     * @param edad           edad del cliente.
+     * @param estatura       estatura del cliente.
+     * @param peso           peso del cliente.
+     * @param cuentaAsociada cuenta de SigmaMeal asociada.
+     * @param estrellas      Estrellas del usuario.
+     */
     public Cliente(String nombreUsuario, String password, String nombre, int edad, int estatura, double peso,
             Cuenta cuentaAsociada, int estrellas) {
         this.nombreUsuario = nombreUsuario;
@@ -25,8 +40,8 @@ public class Cliente implements Serializable {
         this.estrellas = estrellas;
     }
 
+    @Override
     public String toString() {
         return nombreUsuario + " " + nombre + " " + edad + " " + estatura + " " + peso + " " + estrellas;
     }
-
 }
