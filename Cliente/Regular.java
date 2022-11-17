@@ -1,15 +1,22 @@
 package Cliente;
 
-public class Regular implements Modo{
-    public void mostrarComidas(){
-        //Iterator<Comida> i = SigmaMeal.iteradorComidasPredeterminadas();
+
+public class Regular extends Modo{
+    
+    public void personalizarBatido(){
+        throw new IllegalStateException();
     }
 
-    public void mostrarBatidos(){}
-    
-    public void personalizarBatido(){}
+    public void personalizarComida(){
+        throw new IllegalStateException();
+    }
 
-    public void personalizarComida(){}
+    public void mostrarPlanNutricional(){
+        throw new IllegalStateException();
+    }
 
-    public void mostrarPlanNutricional(){}
+    public static void main(String[] sgra){
+        Regular r = new Regular();
+        r.mostrarBatidos();
+    }
 }

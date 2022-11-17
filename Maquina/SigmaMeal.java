@@ -7,13 +7,16 @@ import java.io.ObjectOutputStream;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
-
-import Alimentos.Comida;
-import Alimentos.Predeterminadas.Carnivoro;
-import Alimentos.Predeterminadas.Ligero;
-import Alimentos.Predeterminadas.Tradicional;
 import Cliente.Cliente;
 import Cliente.Cuenta;
+import Productos.Alimentos.Comida;
+import Productos.Alimentos.Predeterminadas.Carnivoro;
+import Productos.Alimentos.Predeterminadas.Ligero;
+import Productos.Alimentos.Predeterminadas.Tradicional;
+import Productos.Batido.Batido;
+import Productos.Batido.Predeterminados.LaBarbara;
+import Productos.Batido.Predeterminados.LaCoqueta;
+import Productos.Batido.Predeterminados.LaPonchada;
 
 public class SigmaMeal {
 
@@ -69,6 +72,14 @@ public class SigmaMeal {
         temp.add(new Carnivoro());
         temp.add(new Ligero());
         temp.add(new Tradicional());
+        return temp.iterator();
+    }
+
+    public static Iterator<Batido> iteradorBatidosPredeterminados(){
+        LinkedList<Batido> temp = new LinkedList<>();
+        temp.add(new LaBarbara());
+        temp.add(new LaCoqueta());
+        temp.add(new LaPonchada());
         return temp.iterator();
     }
 }
