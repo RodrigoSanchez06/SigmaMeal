@@ -11,7 +11,7 @@ public class Lentejas extends Comida {
      * Constructor por defecto del ingrediente Lentejas.
      */
     public Lentejas() {
-        descripcion = this.getDescripcion() + ", Lentejas";
+        descripcion = this.getDescripcion() + " Lentejas";
     }
 
     /**

@@ -11,7 +11,7 @@ public class Pasta extends Comida {
      * Constructor por defecto del ingrediente Pasta.
      */
     public Pasta() {
-        descripcion = this.getDescripcion() + ", Pasta";
+        descripcion = this.getDescripcion() + " Pasta";
 
     }
 

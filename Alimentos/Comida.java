@@ -4,7 +4,7 @@ package Alimentos;
  * Clase abstracta que puede representar a una comida o platillo de SigmaMeal.
  */
 public abstract class Comida {
-    protected String descripcion = "Comida";
+    protected String descripcion = "Comida: ";
     String nombre;
 
     /**

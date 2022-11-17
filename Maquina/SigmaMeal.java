@@ -1,3 +1,5 @@
+package Maquina;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -62,7 +64,7 @@ public class SigmaMeal {
         }
     }
 
-    public Iterator<Comida> iteradorComidasPredterminadas(){
+    public static Iterator<Comida> iteradorComidasPredeterminadas(){
         LinkedList<Comida> temp = new LinkedList<>();
         temp.add(new Carnivoro());
         temp.add(new Ligero());

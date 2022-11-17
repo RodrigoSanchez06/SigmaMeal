@@ -11,7 +11,7 @@ public class Arroz extends Comida {
      * Constructor por defecto del ingrediente arroz.
      */
     public Arroz() {
-        descripcion = this.getDescripcion() + " , Arroz";
+        descripcion = this.getDescripcion() + " Arroz";
     }
 
     /**
