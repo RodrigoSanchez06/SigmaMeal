@@ -3,18 +3,26 @@ package Batido.Ingredientes.Scoops;
 import Batido.Batido;
 import Batido.Ingredientes.Ingrediente;
 
+/**
+ * Clase que representa al ingrediente Vainilla.
+ */
 public class Vainilla extends Ingrediente {
 
     Batido batido;
 
+    /**
+     * Constructor que aplica a un batido el ingrediente Vainilla.
+     * 
+     * @param batido batido al que se le agregará el Vainilla.
+     */
     public Vainilla(Batido batido) {
         this.batido = batido;
     }
 
     /**
-     * Devuelve la descripcion del batido con el ingrediente añadido
+     * Devuelve la descripcion del batido con el ingrediente añadido.
      * 
-     * @return Desctipcion del batido añadiendo el ingrediente
+     * @return Desctipcion del batido añadiendo el ingrediente.
      */
     @Override
     public String getDescripcion() {
@@ -22,9 +30,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve el costo del batido con el scoop de vainilla
+     * Devuelve el costo del batido con el scoop de vainilla.
      * 
-     * @return double del costo del batido con el scoop de vainilla
+     * @return double del costo del batido con el scoop de vainilla.
      */
     @Override
     public double cost() {
@@ -32,9 +40,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve las calorias totales del batido con el scoop de vainilla
+     * Devuelve las calorias totales del batido con el scoop de vainilla.
      * 
-     * @return double del total de calorias del batido con el scoop de vainilla
+     * @return double del total de calorias del batido con el scoop de vainilla.
      */
     @Override
     public double calories() {
@@ -42,9 +50,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve las grasas totales del batido con el scoop de vainilla
+     * Devuelve las grasas totales del batido con el scoop de vainilla.
      * 
-     * @return double del total de grasas del batido con el scoop de vainilla
+     * @return double del total de grasas del batido con el scoop de vainilla.
      */
     @Override
     public double fat() {
@@ -52,9 +60,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve los carbohidratos totales del batido con el scoop de vainilla
+     * Devuelve los carbohidratos totales del batido con el scoop de vainilla.
      * 
-     * @return double del total de caloritas del batido con el scoop de vainilla
+     * @return double del total de caloritas del batido con el scoop de vainilla.
      */
     @Override
     public double carbh() {
@@ -62,9 +70,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve la proteina total del batido con el scoop de vainilla
+     * Devuelve la proteina total del batido con el scoop de vainilla.
      * 
-     * @return double del total de proteina del batido con el scoop de vainilla
+     * @return double del total de proteina del batido con el scoop de vainilla.
      */
     @Override
     public double protein() {
@@ -72,9 +80,9 @@ public class Vainilla extends Ingrediente {
     }
 
     /**
-     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * Devuelve el numero de mililitros del batido con leche.
      * 
-     * @return double con los milititros contenida con leche deslactosada
+     * @return double con los milititros contenida con leche.
      */
     @Override
     public double portion() {

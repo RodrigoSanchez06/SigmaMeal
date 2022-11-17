@@ -3,18 +3,26 @@ package Batido.Ingredientes.Scoops;
 import Batido.Batido;
 import Batido.Ingredientes.Ingrediente;
 
+/**
+ * Clase que representa al ingrediente Chocolate.
+ */
 public class Chocolate extends Ingrediente {
 
     Batido batido;
 
+    /**
+     * Constructor que aplica a un batido el ingrediente Chocolate.
+     * 
+     * @param batido batido al que se le agregará el ingrediente.
+     */
     public Chocolate(Batido batido) {
         this.batido = batido;
     }
 
     /**
-     * Devuelve la descripcion del batido con el ingrediente añadido
+     * Devuelve la descripcion del batido con el ingrediente añadido.
      * 
-     * @return Descripcion del batido añadiendo el ingrediente
+     * @return Descripcion del batido añadiendo el ingrediente.
      */
     @Override
     public String getDescripcion() {
@@ -22,9 +30,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve el costo del batido con el scoop de chocolate
+     * Devuelve el costo del batido con el scoop de chocolate.
      * 
-     * @return double del costo del batido con el scoop de chocolate
+     * @return double del costo del batido con el scoop de chocolate.
      */
     @Override
     public double cost() {
@@ -32,9 +40,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve las calorias totales del batido con el scoop de chocolate
+     * Devuelve las calorias totales del batido con el scoop de chocolate.
      * 
-     * @return double del total de calorias del batido con el scoop de chocolate
+     * @return double del total de calorias del batido con el scoop de chocolate.
      */
     @Override
     public double calories() {
@@ -42,9 +50,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve las grasas totales del batido con el scoop de chocolate
+     * Devuelve las grasas totales del batido con el scoop de chocolate.
      * 
-     * @return double del total de grasas del batido con el scoop de chocolate
+     * @return double del total de grasas del batido con el scoop de chocolate.
      */
     @Override
     public double fat() {
@@ -52,9 +60,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve los carbohidratos totales del batido con el scoop de chocolate
+     * Devuelve los carbohidratos totales del batido con el scoop de chocolate.
      * 
-     * @return double del total de caloritas del batido con el scoop de chocolate
+     * @return double del total de caloritas del batido con el scoop de chocolate.
      */
     @Override
     public double carbh() {
@@ -62,9 +70,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve la proteina total del batido con el scoop de chocolate
+     * Devuelve la proteina total del batido con el scoop de chocolate.
      * 
-     * @return double del total de proteina del batido con el scoop de chocolate
+     * @return double del total de proteina del batido con el scoop de chocolate.
      */
     @Override
     public double protein() {
@@ -72,9 +80,9 @@ public class Chocolate extends Ingrediente {
     }
 
     /**
-     * Devuelve el numero de mililitros del batido con leche deslactosada
+     * Devuelve el numero de mililitros del batido con chocolate.
      * 
-     * @return double con los milititros contenida con leche deslactosada
+     * @return double con los milititros contenida con chocolate.
      */
     @Override
     public double portion() {
