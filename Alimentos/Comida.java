@@ -1,7 +1,7 @@
 package Alimentos;
 
 public abstract class Comida {
-    protected String descripcion = "Comida";
+    protected String descripcion = "Comida: ";
     String nombre;
 
     /**

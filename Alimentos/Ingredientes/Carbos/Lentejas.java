@@ -5,7 +5,7 @@ import Alimentos.Comida;
 public class Lentejas extends Comida {
 
     public Lentejas() {
-        descripcion = this.getDescripcion() + ", Lentejas";
+        descripcion = this.getDescripcion() + " Lentejas";
     }
 
     /**

@@ -5,7 +5,7 @@ import Alimentos.Comida;
 public class Arroz extends Comida {
 
     public Arroz() {
-        descripcion = this.getDescripcion() + " , Arroz";
+        descripcion = this.getDescripcion() + " Arroz";
     }
 
     /**
