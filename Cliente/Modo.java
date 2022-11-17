@@ -1,15 +1,27 @@
 package Cliente;
-import Alimentos.Comida;
-import Batido.Batido;
+import java.util.Iterator;
+import Maquina.SigmaMeal;
+import Productos.Alimentos.Comida;
+import Productos.Batido.Batido;
 
-public interface Modo {
-    void mostrarComidas();
+public abstract class Modo {
+    public void mostrarComidas(){
+        Iterator<Comida> i = SigmaMeal.iteradorComidasPredeterminadas();
+        while(i.hasNext()){
+            System.out.println(i.next().getDescripcion());
+        }
+    }
 
-    void mostrarBatidos();
+    public void mostrarBatidos(){
+        Iterator<Batido> i=SigmaMeal.iteradorBatidosPredeterminados();
+        while(i.hasNext()){
+            System.out.println(i.next().getDescripcion());
+        }
+    }
     
-    void personalizarBatido();
+    public abstract void personalizarBatido();
 
-    void personalizarComida();
+    public abstract void personalizarComida();
 
-    void mostrarPlanNutricional();
+    public abstract void mostrarPlanNutricional();
 }
