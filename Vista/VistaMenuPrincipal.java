@@ -3,6 +3,9 @@ package Vista;
 import java.util.Scanner;
 import Controlador.Controlador;
 
+/**
+ * Vista del menu de inicio
+ */
 public class VistaMenuPrincipal {
 
     Scanner entrada = new Scanner(System.in);

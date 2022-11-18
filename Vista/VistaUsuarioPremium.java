@@ -14,16 +14,26 @@ public class VistaUsuarioPremium {
     }
 
     public void inicioSesion() {
-        System.out.println("Para ingresar como Usuario premium, deberás iniciar Sesión \n" +
+        int intentos = 1;
+        while (intentos < 4) {
+            System.out.println("Para ingresar como Usuario premium, deberás iniciar Sesión \n" +
                 "Introduce tu nombre  de Usuario: ");
-        String nombreUsuario = entrada.nextLine();
-
-        System.out.println("Introduce tu contraseña: ");
-        String password = entrada.nextLine();
-
-        controlador.iniciarSesion(nombreUsuario, password);
-
-        menuPremium();
+            String nombreUsuario = entrada.nextLine();
+            System.out.println("Introduce tu contraseña: ");
+            String password = entrada.nextLine();
+            if (controlador.iniciarSesion(nombreUsuario, password)) {
+                System.out.println("Bienvenido. a Sigma Meal PREMIUM");
+                menuPremium();
+                break;
+            } else {
+                System.out.println("Error, Nombre de ususario o contraseña incorrecta\nIntentos: " + intentos + " de 3");
+                intentos++;
+            }      
+        }
+        if (intentos == 4) {
+            System.out.println("Lo sentimos haz excedido el número de intentos");
+            controlador.regresaMenuPrincipal();
+        } 
     }
 
     public void menuPremium() {
@@ -49,12 +59,110 @@ public class VistaUsuarioPremium {
         }
     }
 
-    public void verCualquierMenuAlimento() {
-
+    public void verCualquierMenuAlimento(String menu, int tipoMenu) {
+        if (tipoMenu == 1) {
+            System.out.print("Estos son nuestros batidos predeterminados. \n"
+                + menu);
+        } else {
+            System.out.println("Estos son nuestros alimentos predeterminados. \n"
+                + menu);
+        }
     }
 
-    public void ArmaBatido() {
+    public void armaBatido() {
         System.out.println("A continución te presentaremos los ingredientes con los que puedes armar tu batido" +
-                " podrás seleccionar los que más te gusten");
+                " podrás seleccionar los ingredientes que más te gusten");
     }
+
+    public void armaComida(){
+        System.out.println("A continución te presentaremos los ingredientes con los que puedes armar tu comida" +
+                " podrás seleccionar los ingredientes que más te gusten");
+    }
+
+    public void realizaConsulta(boolean citaDisponible){
+        if (citaDisponible) {
+            System.out.println("Tu cita ha sido agendada con éxito.\n"
+            +   "Esta cita será sin costo, usted cuenta con un plan Premium");
+        } else {
+            System.out.println("Ya cuentas con una cita médica");
+        }
+    }
+
+    public void consultaEstrellas(){
+        System.out.println("Actualmente cuentas con: " + controlador.consultaEstrellas() + " estrellas.");
+    }
+
+    public void consultaSaldo(){
+        System.out.println("Tu saldo es: $" + controlador.consultaSaldo());
+    }
+
+    public void compraBatidosPredeterminados(){
+        while (true) {
+            try {
+                System.out.println("Elige el batido predeterminado de tu preferencia: ");
+                controlador.ejecutarOpcionDeMenuPremium(1);
+                String entradaPredeterminado = entrada.nextLine();
+                int opcion = Integer.parseInt(entradaPredeterminado);
+                if (opcion == 1 || opcion == 2 || opcion == 3) {
+                    controlador.realizaCompraBatidoPremium(opcion);
+                    break;   
+                } else {
+                    System.out.println("Esta opcion no existe intentaló de nuevo");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Intentalo de nuevo");
+            }   
+        }
+    }
+
+    public void compraComidaPredeterminada(){
+        while (true) {
+            try {
+                System.out.println("Elige la comida predeterminada de tu preferencia: ");
+                controlador.ejecutarOpcionDeMenuPremium(2);
+                String entradaPredeterminado = entrada.nextLine();
+                int opcion = Integer.parseInt(entradaPredeterminado);
+                if (opcion == 1 || opcion == 2 || opcion == 3) {
+                    controlador.realizaCompraComidaPremium(opcion);
+                    break;   
+                } else {
+                    System.out.println("Esta opcion no existe intentaló de nuevo");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Intentalo de nuevo");
+            }   
+        }
+    }
+
+    public void pagar(double costo){
+        System.out.println("El monto a pagar es: " + costo);
+        System.out.println("Procederemos a validar tus datos bancarios para finalizar la compra.");
+        String entradaNoCuenta;
+        String entradaNip;
+        int intentos  = 1;
+        while (intentos < 4 ) {
+                System.out.println("Introduce tu numero de cuenta: ");
+                entradaNoCuenta = entrada.nextLine();
+            try {
+                System.out.println("Introduce tu nip: ");
+                entradaNip = entrada.nextLine();
+
+                long noCuenta = Long.parseLong(entradaNoCuenta);
+                if (controlador.pagarPremium(costo, noCuenta, entradaNip)) {
+                    System.out.println("Muchas gracias por su compra, El monto ha sido cargado a su cuenta SigmaMeal.");
+                    break;
+                } else {
+                    System.out.println("Numero de cuenta o nip  INCORRECTO, intentalo  de nuevo\nintentos: " + intentos 
+                            + " de 3");
+                    intentos++;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error en el Número de cuenta o en el nip, intentalo  de nuevo\nintentos: " + intentos 
+                            + " de 3");
+                intentos++;
+            }   
+        }
+        if(intentos == 4) System.out.println("Lo sentimos Haz excedido el número de intentos");
+    }
+
 }

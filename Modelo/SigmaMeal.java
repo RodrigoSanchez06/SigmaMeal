@@ -1,4 +1,4 @@
-package Maquina;
+package Modelo;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
