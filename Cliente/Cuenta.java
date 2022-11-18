@@ -1,11 +1,11 @@
 package Cliente;
 
 import java.io.Serializable;
-
+import Cliente.ICuenta;
 /**
  * Cuenta de puntos interna de SigmaMeal.
  */
-public class Cuenta implements Serializable {
+public class Cuenta implements ICuenta {
 
     private long noCuenta;
     private String nip;
@@ -22,6 +22,16 @@ public class Cuenta implements Serializable {
         this.noCuenta = noCuenta;
         this.nip = nip;
         this.saldo = saldo;
+    }
+
+    public boolean validarCuenta(long noCuenta, String nip){
+        if(noCuenta != this.noCuenta || !this.nip.equals(nip))
+            return false;
+        return true;
+    }
+
+    public boolean validarFondos(double monto){
+        return this.saldo >= monto;
     }
 
     /**
@@ -76,7 +86,14 @@ public class Cuenta implements Serializable {
      * 
      * @return saldo de la cuenta
      */
-    public double mostarSaldo() {
+    public double mostrarSaldo() {
         return saldo;
+    }
+
+    /**
+     * Método que paga un monto al gimnasio
+     */
+    public void pagar(double monto){
+        this.retirar(monto);
     }
 }

@@ -1,9 +1,11 @@
 package Productos.Batido;
 
+import Productos.Producto;
+
 /**
  * Clase abstracta que representa a un Batido.
  */
-public abstract class Batido {
+public abstract class Batido implements Producto{
     protected String descripcion = "Batido : ";
     String nombre;
 

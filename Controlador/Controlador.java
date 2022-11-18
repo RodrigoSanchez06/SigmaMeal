@@ -1,7 +1,9 @@
 package Controlador;
 
+import java.util.Hashtable;
 import java.util.Iterator;
 
+import Cliente.Cliente;
 import Modelo.SigmaMeal;
 import Productos.Alimentos.Comida;
 import Productos.Batido.Batido;
@@ -25,7 +27,13 @@ public class Controlador{
     }
 
     public boolean iniciarSesion(String nombreUsuario, String contraseña) {
-        return true;
+        Hashtable<String,Cliente> clientes = sigmaMeal.leerClientes();
+        Cliente recuperado = clientes.get(nombreUsuario);
+        if(recuperado != null){
+            sigmaMeal.setClienteActual(recuperado);
+            return contraseña.equals(recuperado.getContraseña());
+        }
+        return false;
     }
 
 
@@ -123,7 +131,7 @@ public class Controlador{
     }
 
     public double consultaSaldo(){
-        return 0;
+        return sigmaMeal.getClienteActual().getCuenta().mostrarSaldo();
     }
 
     public void realizaCompraBatidoPremium(int opcion){

@@ -13,7 +13,7 @@ public class Cliente implements Serializable {
     private int edad;
     private int estatura;
     private double peso;
-    private Cuenta cuentaAsociada; // Cuenta de puntos asociado.
+    private ICuenta cuentaAsociada; // Cuenta de puntos asociado.
     private int estrellas; // Por cada 10 pesos es una estrella.
     private boolean citaMedica;
 
@@ -30,7 +30,7 @@ public class Cliente implements Serializable {
      * @param estrellas      Estrellas del usuario.
      */
     public Cliente(String nombreUsuario, String password, String nombre, int edad, int estatura, double peso,
-            Cuenta cuentaAsociada, int estrellas) {
+            ICuenta cuentaAsociada, int estrellas) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.nombre = nombre;
@@ -39,6 +39,14 @@ public class Cliente implements Serializable {
         this.peso = peso;
         this.cuentaAsociada = cuentaAsociada;
         this.estrellas = estrellas;
+    }
+
+    public String getContraseña(){
+        return this.password;
+    }
+
+    public ICuenta getCuenta(){
+        return this.cuentaAsociada;
     }
 
     @Override

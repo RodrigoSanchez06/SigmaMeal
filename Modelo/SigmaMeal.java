@@ -20,6 +20,8 @@ import Productos.Batido.Predeterminados.LaPonchada;
 
 public class SigmaMeal {
 
+    private Cliente actual;
+
     public SigmaMeal() {
         registrarClientes(crearCuentas());
     }
@@ -40,6 +42,16 @@ public class SigmaMeal {
         }
     }
 
+    public Cliente getClienteActual(){
+        return this.actual;
+    }
+
+    public void setClienteActual(Cliente c){
+        if(c == null)
+            throw new NullPointerException();
+        this.actual = c;
+    }
+
     private Cuenta[] crearCuentas() {
         Cuenta[] cuentas = new Cuenta[3];
         cuentas[0] = new Cuenta(319222571, "1234", 6754);
@@ -48,18 +60,17 @@ public class SigmaMeal {
         return cuentas;
     }
 
-    public void leerClientes() {
+    public Hashtable<String,Cliente> leerClientes() {
+        Hashtable<String,Cliente> listaClientes=null;
         try {
             ObjectInputStream recuperarCLientes = new ObjectInputStream(
                     new FileInputStream("RegistroClientes/listaEmpleados.txt"));
-            Cliente[] listaClientes = (Cliente[]) recuperarCLientes.readObject();
+            listaClientes = (Hashtable<String,Cliente>) recuperarCLientes.readObject();
             recuperarCLientes.close();
-            for (int i = 0; i < listaClientes.length; i++) {
-                System.out.println(listaClientes[i].toString());
-            }
         } catch (Exception e) {
             System.out.println("Error al leer clientes " + e);
         }
+        return listaClientes;
     }
 
     public static Iterator<Comida> iteradorComidasPredeterminadas(){
