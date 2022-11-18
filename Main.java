@@ -1,12 +1,9 @@
-import Maquina.SigmaMeal;
-import Productos.Alimentos.Comida;
-import Productos.Alimentos.Predeterminadas.Carnivoro;
-import Productos.Batido.Batido;
-import Productos.Batido.Predeterminados.*;
+import Controlador.Controlador;
+import Vista.VistaMenuPrincipal;
 
 public class Main {
         public static void main(String[] args) {
-                SigmaMeal sucursal = new SigmaMeal();
-                sucursal.leerClientes();
+                VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal();
+                vistaMenuPrincipal.vistaPrincipalMenu();
         }
 }

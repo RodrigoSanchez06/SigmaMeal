@@ -25,11 +25,6 @@ public class SigmaMeal {
     }
 
     public void registrarClientes(Cuenta[] cuentas) {
-
-        //listaCliente[0] = new Cliente("Gonzalo777", "gonzalito123", "Gonzalo", 34, 170, 76.5, cuentas[0], 28);
-        //listaCliente[1] = new Cliente("Mar123", "mar0217", "Maria", 19, 176, 70.1, cuentas[1], 100);
-        //listaCliente[2] = new Cliente("TimiPro", "tim123", "Timi", 18, 180, 98.3, cuentas[2], 200);
-
         Hashtable<String,Cliente> clientes = new Hashtable<String,Cliente>();
         clientes.put("Gonzalo777", new Cliente("Gonzalo777", "gonzalito123", "Gonzalo", 34, 170, 76.5, cuentas[0], 28));
         clientes.put("Mar123", new Cliente("Mar123", "mar0217", "Maria", 19, 176, 70.1, cuentas[1], 100));
@@ -63,7 +58,7 @@ public class SigmaMeal {
                 System.out.println(listaClientes[i].toString());
             }
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("Error al leer clientes " + e);
         }
     }
 
