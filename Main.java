@@ -1,9 +1,12 @@
-import Controlador.Controlador;
-import Vista.VistaMenuPrincipal;
 
+import Controlador.Controlador;
+
+/**
+ * Clase principal del programa.
+ */
 public class Main {
         public static void main(String[] args) {
-                VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal();
-                vistaMenuPrincipal.vistaPrincipalMenu();
+                Controlador controlador = new Controlador();
+                controlador.iniciaPrograma();
         }
 }

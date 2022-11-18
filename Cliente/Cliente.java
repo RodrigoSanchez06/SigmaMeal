@@ -15,6 +15,7 @@ public class Cliente implements Serializable {
     private double peso;
     private Cuenta cuentaAsociada; // Cuenta de puntos asociado.
     private int estrellas; // Por cada 10 pesos es una estrella.
+    private boolean citaMedica;
 
     /**
      * Constructor de un Cliente
