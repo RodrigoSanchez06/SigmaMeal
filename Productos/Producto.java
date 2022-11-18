@@ -1,22 +1,8 @@
-package Productos.Alimentos;
+package Productos;
 
-import Productos.Producto;
-
-/**
- * Clase abstracta que puede representar a una comida o platillo de SigmaMeal.
- */
-public abstract class Comida implements Producto{
-    protected String descripcion = "Comida: ";
-    String nombre;
-
-    /**
-     * Devuelve la descripción de la comida preparada.
-     * 
-     * @return descripción del batido.
-     */
-    public String getDescripcion() {
-        return this.descripcion;
-    }
+public interface Producto {
+    
+    public String getDescripcion();
 
     /**
      * devuelve el costo total de los ingredientes agregados.
