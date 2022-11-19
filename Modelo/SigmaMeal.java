@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import Cliente.Cliente;
 import Cliente.Cuenta;
+import Productos.Alimentos.AdapterBatido;
 import Productos.Alimentos.Comida;
 import Productos.Alimentos.Predeterminadas.Carnivoro;
 import Productos.Alimentos.Predeterminadas.Ligero;
@@ -73,11 +74,11 @@ public class SigmaMeal {
         return listaClientes;
     }
 
-    public static Iterator<Comida> iteradorComidasPredeterminadas(){
-        LinkedList<Comida> temp = new LinkedList<>();
-        temp.add(new Carnivoro());
-        temp.add(new Ligero());
-        temp.add(new Tradicional());
+    public static Iterator<Batido> iteradorComidasPredeterminadas(){
+        LinkedList<Batido> temp = new LinkedList<>();
+        temp.add(new AdapterBatido(new Carnivoro()));
+        temp.add(new AdapterBatido(new Ligero()));
+        temp.add(new AdapterBatido(new Tradicional()));
         return temp.iterator();
     }
 

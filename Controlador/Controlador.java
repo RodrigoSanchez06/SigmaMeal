@@ -108,9 +108,9 @@ public class Controlador{
                 i++;
             }
         } else {
-            Iterator<Comida> menuComida = sigmaMeal.iteradorComidasPredeterminadas();
+            Iterator<Batido> menuComida = sigmaMeal.iteradorComidasPredeterminadas();
             while (menuComida.hasNext()) {
-                Comida producto = menuComida.next();
+                Batido producto = menuComida.next();
                 menu += i + ".- " + producto.getDescripcion() + " COSTO: $ " + producto.cost() + "\n";
                 i++;
             }
@@ -146,10 +146,10 @@ public class Controlador{
     }
 
     public void realizaCompraComidaPremium(int opcion){
-        Iterator<Comida> itComida = sigmaMeal.iteradorComidasPredeterminadas();
+        Iterator<Batido> itComida = sigmaMeal.iteradorComidasPredeterminadas();
         double costo = 0;
         for (int i = 0; i < opcion; i++) {
-            Comida batidoPagar = itComida.next();
+            Batido batidoPagar = itComida.next();
             costo = batidoPagar.cost();
             costo = costo - (costo * 0.15);
         }
