@@ -7,7 +7,6 @@ import Productos.Producto;
  */
 public abstract class Comida implements Producto{
     protected String descripcion = "Comida: ";
-    String nombre;
 
     /**
      * Devuelve la descripción de la comida preparada.
