@@ -2,17 +2,19 @@ package Controlador;
 
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Scanner;
 
 import Cliente.Cliente;
 import Modelo.SigmaMeal;
-import Productos.Alimentos.Comida;
 import Productos.Batido.Batido;
 import Vista.VistaMenuPrincipal;
 import Vista.VistaUsuarioPremium;
 import Vista.VistaUsuarioRegular;
 
+/** */
 public class Controlador{
 
+    Scanner entrada = new Scanner(System.in);
     VistaMenuPrincipal vistaMenuPrincipal = new VistaMenuPrincipal(this); // Vista
     VistaUsuarioPremium vistaUsuarioPremium = new VistaUsuarioPremium(this); // Vista
     VistaUsuarioRegular vistaUsuarioRegular = new VistaUsuarioRegular(this); // Vista
@@ -36,8 +38,6 @@ public class Controlador{
         return false;
     }
 
-
-
     public void ejecutarOpcionDeMenuPremium(int opcion) {
         switch (opcion) {
             case 1:
@@ -60,14 +60,16 @@ public class Controlador{
                 vistaUsuarioPremium.compraComidaPredeterminada();
                 break;
             case 7:
-                // Realiza una consulta médica.
                 consultaMedica(false);
                 break;
             case 8:
-                // Consulta estrellas.
+                vistaUsuarioPremium.consultaEstrellas();
                 break;
             case 9:
-                // Consulta saldo.
+                vistaUsuarioPremium.consultaSaldo();
+                break;
+            case 10:
+                regresaMenuPrincipal();
                 break;
             default:
                 throw new IllegalStateException("Estado invalido en menu premium");
@@ -90,7 +92,8 @@ public class Controlador{
                 break;
             case 5:
                 // Realiza una consulta médica.
-
+            case 6:
+                regresaMenuPrincipal();
                 break;
             default:
                 break;
@@ -166,5 +169,22 @@ public class Controlador{
 
     public void regresaMenuPrincipal(){
         vistaMenuPrincipal.vistaPrincipalMenu();
+    }
+
+    public void regresaMenuDeOpcionesPremium(){
+        vistaUsuarioPremium.menuPremium();
+    }
+
+    public void regresaMenuDeOpcionesRegular(){
+        vistaUsuarioRegular.menuRegular();
+    }
+
+    public void armaBatido(int leche){
+        Batido batdio = sigmaMeal.armaBatido(leche);
+        String descripcion = "Tu batido";
+    }
+
+    public void armaComida(){
+        
     }
 }

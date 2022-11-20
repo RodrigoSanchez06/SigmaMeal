@@ -48,7 +48,8 @@ public class VistaUsuarioPremium {
                             + "6.- Compra tu Comida. \n"
                             + "7.- Realiza una consulta. \n"
                             + "8.- Consulta Estrellas.\n"
-                            + "9.- Consulta Saldo.");
+                            + "9.- Consulta Saldo.\n"
+                            + "10.- Salir al menú principal.");
             String entradaOpcionMenu = entrada.nextLine();
             try {
                 int opcion = Integer.parseInt(entradaOpcionMenu);
@@ -101,11 +102,14 @@ public class VistaUsuarioPremium {
             try {
                 System.out.println("Elige el batido predeterminado de tu preferencia: ");
                 controlador.ejecutarOpcionDeMenuPremium(1);
+                System.out.println("4.- Regresar al menu  de opciones.");
                 String entradaPredeterminado = entrada.nextLine();
                 int opcion = Integer.parseInt(entradaPredeterminado);
                 if (opcion == 1 || opcion == 2 || opcion == 3) {
                     controlador.realizaCompraBatidoPremium(opcion);
                     break;   
+                } else if(opcion == 4){
+                    controlador.regresaMenuDeOpcionesPremium();
                 } else {
                     System.out.println("Esta opcion no existe intentaló de nuevo");
                 }
@@ -165,4 +169,24 @@ public class VistaUsuarioPremium {
         if(intentos == 4) System.out.println("Lo sentimos Haz excedido el número de intentos");
     }
 
+    public void armaTuBatido(){
+        while (true) {
+            try {
+                System.out.println("Primero, selecciona la leche de tu preferencia.\n"
+                + "1.- Leche Deslactosada.\n"
+                + "2.- Leche Entera.\n"
+                + "3.- Leche Protéica.");
+                String entradaLeche = entrada.nextLine();
+                int opLeche = Integer.parseInt(entradaLeche);
+                if (opLeche >= 1 && opLeche <= 3) {
+                    controlador.armaBatido(opLeche);
+                    break;
+                } else {
+                    System.out.println("Opción inexistente, intentalo de nuevo por favor.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, intentalo de nuevo.");
+            }   
+        }
+    }
 }
