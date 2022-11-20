@@ -2,7 +2,7 @@ package Cliente;
 
 import java.io.Serializable;
 
-public interface ICuenta extends Serializable{
+public interface ICuenta extends Serializable {
     void pagar(double monto);
 
     double mostrarSaldo();

@@ -18,7 +18,7 @@ public class AdapterBatido extends Batido{
      */
     @Override
     public String getDescripcion() {
-        return this.alimento.descripcion;
+        return this.alimento.getDescripcion();
     }
 
     /**
