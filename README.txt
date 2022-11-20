@@ -16,7 +16,7 @@ Decorator se uso en la parte de la creacion de nuestros alimentos y batidos para
 
 Proxy se utilizo en la parte de los movimientos bancarios de los clientes, ofreciendo seguridad en el uso de sus datos.
 
-Adapter 
+Adapter se utilizo para simplificar el codigo en otros aspectos como la vista el controlador.
 
 MVC se utilizo para separar la vista de los menus con sus distintas operaciones haciendo que haya mas organizacion en el codigo.
 
