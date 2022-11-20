@@ -128,7 +128,7 @@ public class Controlador{
     }
 
     public int consultaEstrellas(){
-        return 1;
+        return sigmaMeal.getClienteActual().getEstrellas();
     }
 
     public double consultaSaldo(){
@@ -152,7 +152,7 @@ public class Controlador{
         for (int i = 0; i < opcion; i++) {
             Batido batidoPagar = itComida.next();
             costo = batidoPagar.cost();
-            costo = costo - (costo * 0.15);
+            costo = costo * 0.85;
         }
         vistaUsuarioPremium.pagar(costo);
     }
@@ -167,7 +167,16 @@ public class Controlador{
             return false;
         }
         cuentaActual.pagar(pago);
+        this.agregaEstrellas((int) Math.floor(pago/10));
+        vistaUsuarioPremium.consultaSaldo();
+        vistaUsuarioPremium.consultaEstrellas();
         return true;
+    }
+
+    public void agregaEstrellas(int n){
+        if(n <= 0)
+            throw new IllegalArgumentException();
+        this.sigmaMeal.getClienteActual().setEstrellas(this.sigmaMeal.getClienteActual().getEstrellas()+n);
     }
 
     public void pagarRegular(){
