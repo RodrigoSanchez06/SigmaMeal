@@ -49,6 +49,16 @@ public class Cliente implements Serializable {
         return this.cuentaAsociada;
     }
 
+    public int getEstrellas(){
+        return this.estrellas;
+    }
+
+    public void setEstrellas(int n){
+        if(n <= 0)
+            throw new IllegalArgumentException();
+        this.estrellas = n;
+    }
+
     @Override
     public String toString() {
         return nombreUsuario + " " + nombre + " " + edad + " " + estatura + " " + peso + " " + estrellas;
