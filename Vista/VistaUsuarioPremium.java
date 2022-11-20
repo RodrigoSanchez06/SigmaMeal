@@ -96,6 +96,14 @@ public class VistaUsuarioPremium {
         System.out.println("Tu saldo es: $" + controlador.consultaSaldo());
     }
 
+    public void saldoInsuficiente(){
+        System.out.println("El saldo de tu cuenta es insuficiente para pagar, por favor verifica tus fondos");
+    }
+
+    public void datosIncorrectosCuenta(){
+        System.out.println("El noCuenta o nip son incorrectos, por favor verifique sus datos");
+    }
+
     public void compraBatidosPredeterminados(){
         while (true) {
             try {

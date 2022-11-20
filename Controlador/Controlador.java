@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 
 import Cliente.Cliente;
+import Cliente.ICuenta;
 import Modelo.SigmaMeal;
 import Productos.Alimentos.Comida;
 import Productos.Batido.Batido;
@@ -156,7 +157,17 @@ public class Controlador{
         vistaUsuarioPremium.pagar(costo);
     }
 
-    public boolean pagarPremium(double pago, Long noCuenta, String nip){
+    public boolean pagarPremium(double pago, long noCuenta, String nip){
+        ICuenta cuentaActual = sigmaMeal.getClienteActual().getCuenta();
+        if(cuentaActual.validarCuenta(noCuenta, nip)){
+            vistaUsuarioPremium.datosIncorrectosCuenta();
+            return false;
+        }
+        if(cuentaActual.validarFondos(pago)){
+            vistaUsuarioPremium.saldoInsuficiente();
+            return false;
+        }
+        cuentaActual.pagar(pago);
         return true;
     }
 
