@@ -159,11 +159,10 @@ public class Controlador{
 
     public boolean pagarPremium(double pago, long noCuenta, String nip){
         ICuenta cuentaActual = sigmaMeal.getClienteActual().getCuenta();
-        if(cuentaActual.validarCuenta(noCuenta, nip)){
-            vistaUsuarioPremium.datosIncorrectosCuenta();
+        if(!cuentaActual.validarCuenta(noCuenta, nip)){
             return false;
         }
-        if(cuentaActual.validarFondos(pago)){
+        if(!cuentaActual.validarFondos(pago)){
             vistaUsuarioPremium.saldoInsuficiente();
             return false;
         }
