@@ -23,7 +23,7 @@ public class Arroz extends Comida {
      */
     @Override
     public double cost() {
-        return 25;
+        return 19.80;
     }
 
     /**

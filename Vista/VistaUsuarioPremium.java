@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 import Controlador.Controlador;
 import Productos.Batido.Batido;
-import Productos.Batido.Ingredientes.Leches.LecheDeslactosada;
-import Productos.Batido.Ingredientes.Leches.LecheEntera;
-import Productos.Batido.Ingredientes.Leches.LecheProteica;
 
 public class VistaUsuarioPremium {
 
@@ -70,51 +67,14 @@ public class VistaUsuarioPremium {
             System.out.print("Estos son nuestros batidos predeterminados. \n"
                     + menu);
         } else {
-            System.out.println("Estos son nuestros alimentos predeterminados. \n"
+            System.out.print("Estos son nuestros alimentos predeterminados. \n"
                     + menu);
         }
     }
 
-    public void armaBatido() {
-        int opcionLeche = 0, opcionProteina = 0, opcionCereal = 0, opcionFruta = 0;
-        Scanner sc = new Scanner(System.in);
-        Batido batido;
-        do {
-            System.out.println("Elije la leche que va a contener:\n1)Deslactosada \n2)Proteica \n3)Entera");
-            try {
-                opcionLeche = sc.nextInt();
-            } catch (IllegalArgumentException c) {
-                c.getMessage();
-                sc.next();
-            }
-
-        } while (opcionLeche > 3 || opcionLeche < 1);
-        switch (opcionLeche) {
-            case 1:
-                batido = new LecheDeslactosada();
-                break;
-            case 2:
-                batido = new LecheProteica();
-                break;
-            case 3:
-                batido = new LecheEntera();
-                break;
-
-            default:
-                System.out.println("Opcion no valida");
-                break;
-        }
-        System.out.println("Sigamos con los ingredientes a agregar:");
-
-    }
-
-    public void armaComida() {
-        System.out.println("A continución te presentaremos los ingredientes con los que puedes armar tu comida" +
-                " podrás seleccionar los ingredientes que más te gusten");
-    }
-
     public void realizaConsulta(boolean citaDisponible) {
-        if (citaDisponible) {
+        if (!citaDisponible) {
+            controlador.asignaConsulta(true);
             System.out.println("Tu cita ha sido agendada con éxito.\n"
                     + "Esta cita será sin costo, usted cuenta con un plan Premium");
         } else {
@@ -214,6 +174,7 @@ public class VistaUsuarioPremium {
     }
 
     public void armaTuBatido(){
+        Batido batido;
         while (true) {
             try {
                 System.out.println("Primero, selecciona la leche de tu preferencia.\n"
@@ -223,7 +184,7 @@ public class VistaUsuarioPremium {
                 String entradaLeche = entrada.nextLine();
                 int opLeche = Integer.parseInt(entradaLeche);
                 if (opLeche >= 1 && opLeche <= 3) {
-                    controlador.armaBatido(opLeche);
+                    batido = controlador.armaBatido(opLeche);
                     break;
                 } else {
                     System.out.println("Opción inexistente, intentalo de nuevo por favor.");
@@ -232,5 +193,34 @@ public class VistaUsuarioPremium {
                 System.out.println("Entrada inválida, intentalo de nuevo.");
             }   
         }
+        double costo = batido.cost();
+        System.out.println("Tu batido tiene los siguientes ingredientes " + batido.getDescripcion() + " Su costo es de : "+ batido.cost());
+        pagar(costo);
     }
+
+    public void armaComida() {
+        Batido batido;
+        while (true) {
+            try {
+                System.out.println("Primero, selecciona el carbohidrato de tu preferencia.\n"
+                + "1.- Arroz.\n"
+                + "2.- Lentejas.\n"
+                + "3.- Pasta.");
+                String entradaCarbo = entrada.nextLine();
+                int opCarbo = Integer.parseInt(entradaCarbo);
+                if (opCarbo >= 1 && opCarbo <= 3) {
+                    batido = controlador.armaComida(opCarbo);
+                    break;
+                } else {
+                    System.out.println("Opción inexistente, intentalo de nuevo por favor.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, intentalo de nuevo.");
+            }   
+        }
+        double costo = batido.cost();
+        System.out.println("Tu Comida tiene los siguientes ingredientes " + batido.getDescripcion() + " Su costo es de : "+ batido.cost());
+        pagar(costo);
+    }
+
 }

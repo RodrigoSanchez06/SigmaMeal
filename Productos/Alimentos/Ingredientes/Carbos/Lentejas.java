@@ -23,7 +23,7 @@ public class Lentejas extends Comida {
      */
     @Override
     public double cost() {
-        return 25;
+        return 27.8;
     }
 
     /**

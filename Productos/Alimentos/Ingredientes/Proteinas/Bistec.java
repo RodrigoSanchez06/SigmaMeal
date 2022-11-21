@@ -34,7 +34,7 @@ public class Bistec extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 25 + comida.cost();
+        return 27 + comida.cost();
     }
 
     /**

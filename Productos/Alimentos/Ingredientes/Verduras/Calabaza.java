@@ -34,7 +34,7 @@ public class Calabaza extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 26 + comida.cost();
+        return 17 + comida.cost();
     }
 
     /**

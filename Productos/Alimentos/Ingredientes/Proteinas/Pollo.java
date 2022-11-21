@@ -34,7 +34,7 @@ public class Pollo extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 25 + comida.cost();
+        return 28.2 + comida.cost();
     }
 
     /**
