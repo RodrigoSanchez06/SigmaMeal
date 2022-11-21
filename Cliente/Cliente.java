@@ -41,33 +41,56 @@ public class Cliente implements Serializable {
         this.estrellas = estrellas;
     }
 
+    /**
+     * @return regresa la contraseña del cliente
+     */
     public String getContraseña(){
         return this.password;
     }
 
+    /**
+     * @return cuenta asociada del cliente
+     */
     public ICuenta getCuenta(){
         return this.cuentaAsociada;
     }
 
+    /**
+     * @return estrellas del cliente
+     */
     public int getEstrellas(){
         return this.estrellas;
     }
 
+    /**
+     * Asigna estrellas a las estrellas del cliente
+     * @param n estrellas
+     */
     public void setEstrellas(int n){
         if(n <= 0)
             throw new IllegalArgumentException();
         this.estrellas = n;
     }
 
+    /**
+     * Representación textual de un cliente.
+     */
     @Override
     public String toString() {
         return nombreUsuario + " " + nombre + " " + edad + " " + estatura + " " + peso + " " + estrellas;
     }
 
+    /**
+     * asigna una cita médica
+     * @param hayCita existe cita
+     */
     public void setCitaMedica(boolean hayCita){
         this.citaMedica = hayCita;
     }
 
+    /**
+     * @return disponibilidad de cita médica
+     */
     public boolean getCitaMedica(){
         return this.citaMedica;
     }

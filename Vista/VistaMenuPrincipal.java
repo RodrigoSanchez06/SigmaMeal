@@ -11,10 +11,17 @@ public class VistaMenuPrincipal {
     Scanner entrada = new Scanner(System.in);
     Controlador controlador;
 
+    /**
+     * Constructor de vista que asigna un controlador
+     * @param controlador
+     */
     public VistaMenuPrincipal(Controlador controlador) {
         this.controlador = controlador;
     }
 
+    /**
+     * Método que muestra la vista principal del menú
+     */
     public void vistaPrincipalMenu() {
         Scanner entrada = new Scanner(System.in);
         System.out.println("   _____ _                         __  __            _  ");

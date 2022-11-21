@@ -42,15 +42,26 @@ import Productos.Batido.Predeterminados.LaBarbara;
 import Productos.Batido.Predeterminados.LaCoqueta;
 import Productos.Batido.Predeterminados.LaPonchada;
 
+/**
+ * Modelo de Sigma meal
+ */
 public class SigmaMeal {
 
     private Cliente actual;
     Scanner entrada = new Scanner(System.in);
 
+    /**
+     * Constructor por defecto de SigmaMeal
+     * registra los clientes que tiene en su banco de datos
+     */
     public SigmaMeal() {
         registrarClientes(crearCuentas());
     }
 
+    /**
+     * Registra los clientes.
+     * @param cuentas arreglo de cuentas a itroducir
+     */
     public void registrarClientes(Cuenta[] cuentas) {
         Hashtable<String, Cliente> clientes = new Hashtable<String, Cliente>();
         clientes.put("Gonzalo777", new Cliente("Gonzalo777", "gonzalito123", "Gonzalo", 34, 170, 76.5, cuentas[0], 28));
@@ -67,16 +78,28 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Devuelve el cliente con el que se está trabajando
+     * @return cliente con el que se trabaja.
+     */
     public Cliente getClienteActual() {
         return this.actual;
     }
 
+    /**
+     * Asigna un cliente con el que se trabajará.
+     * @param c cliente con el que se trabajará.
+     */
     public void setClienteActual(Cliente c) {
         if (c == null)
             throw new NullPointerException();
         this.actual = c;
     }
 
+    /**
+     * Crea las cuentas que estarán dadas de alta en el sistema.
+     * @return
+     */
     private Cuenta[] crearCuentas() {
         Cuenta[] cuentas = new Cuenta[3];
         cuentas[0] = new Cuenta(319222571, "1234", 6754);
@@ -85,6 +108,9 @@ public class SigmaMeal {
         return cuentas;
     }
 
+    /**
+     * Lee los clientes de una estructura HashTable previamente serializada.
+     */
     public Hashtable<String, Cliente> leerClientes() {
         Hashtable<String, Cliente> listaClientes = null;
         try {
@@ -98,6 +124,9 @@ public class SigmaMeal {
         return listaClientes;
     }
 
+    /*
+     * Regresa un iterador de tipo Batido que será del menú de comidas
+     */
     public static Iterator<Batido> iteradorComidasPredeterminadas() {
         LinkedList<Batido> temp = new LinkedList<>();
         temp.add(new AdapterBatido(new Carnivoro()));
@@ -106,6 +135,9 @@ public class SigmaMeal {
         return temp.iterator();
     }
 
+    /**
+     * Regres un iterador de tipo batido que será menu de batidos
+     */
     public static Iterator<Batido> iteradorBatidosPredeterminados() {
         LinkedList<Batido> temp = new LinkedList<>();
         temp.add(new LaBarbara());
@@ -114,6 +146,11 @@ public class SigmaMeal {
         return temp.iterator();
     }
 
+    /**
+     * Arma un batido predeterminado
+     * @param leche opc de leche
+     * @return batido predeterminado
+     */
     public Batido armaBatido(int leche) {
         switch (leche) {
             case 1:
@@ -130,6 +167,11 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Selecciona Scoop de un batido predeterminado
+     * @param batido batido que se está preparando
+     * @return batido personalizado
+     */
     public Batido seleccionaScoop(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
@@ -158,6 +200,11 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Selecciona fruta a un batido predeterminado
+     * @param batido batido que se está preparando
+     * @return batido personalizado
+     */
     public Batido seleccionFruta(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
@@ -186,6 +233,11 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Selecciona Cereal a un batido predeterminado
+     * @param batido batido que se está preparando
+     * @return batido personalizado
+     */
     public Batido seleccionaCereal(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
@@ -214,6 +266,11 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Arma un Comida predeterminado
+     * @param carbo opc de carbohidrato
+     * @return comida predeterminado
+     */
     public Comida armaComida(int carbo) {
         switch (carbo) {
             case 1:
@@ -230,6 +287,11 @@ public class SigmaMeal {
         }
     }
 
+     /**
+     * Selecciona proteína a una comida predeterminada
+     * @param comida batido que se está preparando
+     * @return comida personalizado
+     */
     public Comida eligeProteina(Comida comida) {
         Comida comidaEnPreparacion = comida;
         while (true) {
@@ -258,6 +320,11 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Selecciona verdura a una comida predeterminada
+     * @param comida batido que se está preparando
+     * @return comida personalizado
+     */
     public Comida seleccionaVerduras(Comida comida) {
         Comida comidaEnPreparacion = comida;
         while (true) {
@@ -286,10 +353,18 @@ public class SigmaMeal {
         }
     }
 
+    /**
+     * Corrobora si el cliente actual tiene una consulta
+     * @return existe consulta
+     */
     public boolean ExisteConsulta(){
         return actual.getCitaMedica();
     }
 
+    /**
+     * Asigna una consulta al cliente actual.
+     * @param consulta estado de la consulta.
+     */
     public void asignaConsulta(boolean consulta){
         actual.setCitaMedica(consulta);
     }
