@@ -2,9 +2,16 @@ package Productos.Alimentos;
 
 import Productos.Batido.Batido;
 
+/**
+ * Clase que adapta un batido con una comida, tienen comportamiento identico
+ */
 public class AdapterBatido extends Batido{
     private Comida alimento;
 
+    /**
+     * Constructor de adpterBatido que asigna una comida a convertir
+     * @param c comida a convertir
+     */
     public AdapterBatido(Comida c){
         if(c == null)
             throw new NullPointerException();

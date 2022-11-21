@@ -5,15 +5,25 @@ import java.util.Scanner;
 import Controlador.Controlador;
 import Productos.Batido.Batido;
 
+/**
+ * Vista de un usuario Premium
+ */
 public class VistaUsuarioPremium {
 
     Scanner entrada = new Scanner(System.in);
     Controlador controlador;
 
+    /**
+     * Constructor de vista usuario premium.
+     * @param controlador controlador al que se le asigna.
+     */
     public VistaUsuarioPremium(Controlador controlador) {
         this.controlador = controlador;
     }
 
+    /**
+     * Método que recolecta y valida las credenciales del cliente de SigmaMeal.
+     */
     public void inicioSesion() {
         int intentos = 1;
         while (intentos < 4) {
@@ -38,6 +48,10 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Método que muestra las opciones disponibles de una cuenta premium.
+     * también recolecta y valida la opción del usuario.
+     */
     public void menuPremium() {
         while (true) {
             System.out
@@ -62,6 +76,11 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Esté método visualiza cualquiera de los 2 tipos de menú que existen (batido y comida).
+     * @param menu menu a presentar
+     * @param tipoMenu tipo de menu que es
+     */
     public void verCualquierMenuAlimento(String menu, int tipoMenu) {
         if (tipoMenu == 1) {
             System.out.print("Estos son nuestros batidos predeterminados. \n"
@@ -72,6 +91,10 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Realiza una consulta médica al usuario (si es que no tiene una actual)
+     * @param citaDisponible existe o no una cita
+     */
     public void realizaConsulta(boolean citaDisponible) {
         if (!citaDisponible) {
             controlador.asignaConsulta(true);
@@ -82,22 +105,38 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Hace saber al usuario su cantidad de estrellas.
+     */
     public void consultaEstrellas() {
         System.out.println("Actualmente cuentas con: " + controlador.consultaEstrellas() + " estrellas.");
     }
 
+    /**
+     * Hace saber al usuario su saldo.
+     */
     public void consultaSaldo() {
         System.out.println("Tu saldo es: $" + controlador.consultaSaldo());
     }
 
+    /**
+     * Hace saber al usuario que su saldo es insuficiente.
+     */
     public void saldoInsuficiente() {
         System.out.println("El saldo de tu cuenta es insuficiente para pagar, por favor verifica tus fondos");
     }
 
+    /**
+     * Hace saber al usuario que sus datos de cuenta son incorrectos.
+     */
     public void datosIncorrectosCuenta() {
         System.out.println("El noCuenta o nip son incorrectos, por favor verifique sus datos");
     }
 
+    /**
+     * Hace saber al usuario el menú de batidos y le da a escoger, recolectando la 
+     * opción del usuario.
+     */
     public void compraBatidosPredeterminados() {
         while (true) {
             try {
@@ -121,6 +160,10 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Hace saber al usuario el menú de comida y le da a escoger, recolectando la
+     * opción  del usuario.
+     */
     public void compraComidaPredeterminada() {
         while (true) {
             try {
@@ -140,6 +183,11 @@ public class VistaUsuarioPremium {
         }
     }
 
+    /**
+     * Hace saber al usuario el costo de su producto. y lo hace validar
+     * sus datos de cuenta(dinero).
+     * @param costo
+     */
     public void pagar(double costo) {
         System.out.println("El monto a pagar es: " + costo);
         System.out.println("Procederemos a validar tus datos bancarios para finalizar la compra.");
@@ -173,6 +221,9 @@ public class VistaUsuarioPremium {
             System.out.println("Lo sentimos Haz excedido el número de intentos");
     }
 
+    /**
+     * Acompaña al usuario a la elaboración de un batido personalizado.
+     */
     public void armaTuBatido(){
         Batido batido;
         while (true) {
@@ -198,6 +249,9 @@ public class VistaUsuarioPremium {
         pagar(costo);
     }
 
+    /**
+     * Acompaña al usuario a la elaboración de una comida personalizada.
+     */
     public void armaComida() {
         Batido batido;
         while (true) {

@@ -14,6 +14,9 @@ import Vista.VistaMenuPrincipal;
 import Vista.VistaUsuarioPremium;
 import Vista.VistaUsuarioRegular;
 
+/*
+ * Controlador de SigmaMeal
+ */
 public class Controlador {
 
     Scanner entrada = new Scanner(System.in);
@@ -22,6 +25,10 @@ public class Controlador {
     VistaUsuarioRegular vistaUsuarioRegular = new VistaUsuarioRegular(this); // Vista
     SigmaMeal sigmaMeal = new SigmaMeal(); // Modelo
 
+    /**
+     * Valida la opcion inicial del cliente y cambia la vista
+     * @param opcionInicial opcion que inicial del cliente
+     */
     public void opcionInicial(int opcionInicial) {
         if (opcionInicial == 1) {
             vistaUsuarioRegular.menuRegular();
@@ -30,6 +37,12 @@ public class Controlador {
         }
     }
 
+    /**
+     * Valida con el modelo el inicio de sesión del usuario
+     * @param nombreUsuario 
+     * @param contraseña
+     * @return verdadero si coinciden las credenciales , false en cualquier otro caso.
+     */
     public boolean iniciarSesion(String nombreUsuario, String contraseña) {
         Hashtable<String, Cliente> clientes = sigmaMeal.leerClientes();
         Cliente recuperado = clientes.get(nombreUsuario);
@@ -40,6 +53,10 @@ public class Controlador {
         return false;
     }
 
+    /**
+     * Efectua la opción que selecciona el usuario en el menú premium
+     * @param opcion opcion de menú premium
+     */
     public void ejecutarOpcionDeMenuPremium(int opcion) {
         switch (opcion) {
             case 1:
@@ -77,6 +94,10 @@ public class Controlador {
         }
     }
 
+    /**
+     * Efectua la opción que selecciona el usuario en el menú regular
+     * @param opcion opcion de menú regular
+     */
     public void ejecutarOpcionDeMenuRegular(int opcion) {
         switch (opcion) {
             case 1:
@@ -102,6 +123,11 @@ public class Controlador {
         }
     }
 
+    /**
+     * Dependiendo del tipo de menú, devolverá un mení
+     * @param tipoMenu tipo de menú
+     * @return descripción del menú
+     */
     public String devolverMenuDeProducto(int tipoMenu) {
         String menu = "";
         int i = 1;
@@ -123,19 +149,34 @@ public class Controlador {
         return menu;
     }
 
+    /**
+     * Inicia el programa con la vista principal.
+     */
     public void iniciaPrograma() {
         vistaMenuPrincipal.vistaPrincipalMenu();
     }
 
+    /**
+     * Consulta las estrellas del cliente con el modelo.
+     * @return cantidad de estrellas.
+     */
     public int consultaEstrellas() {
         return sigmaMeal.getClienteActual().getEstrellas();
     }
 
+    /**
+     * Consulta el saldo del cliente con el modelo.
+     * @return saldo del cliente.
+     */
     public double consultaSaldo() {
 
         return sigmaMeal.getClienteActual().getCuenta().mostrarSaldo();
     }
 
+    /**
+     * Encuentra el batido y aplica descuentos premium
+     * @param opcion opcion de batido.
+     */
     public void realizaCompraBatidoPremium(int opcion) {
         Iterator<Batido> itBatido = sigmaMeal.iteradorBatidosPredeterminados();
         double costo = 0;
@@ -147,6 +188,10 @@ public class Controlador {
         vistaUsuarioPremium.pagar(costo);
     }
 
+     /**
+     * Encuentra la comida y aplica descuentos premium
+     * @param opcion opcion de comida.
+     */
     public void realizaCompraComidaPremium(int opcion) {
         Iterator<Batido> itComida = sigmaMeal.iteradorComidasPredeterminadas();
         double costo = 0;
@@ -158,6 +203,10 @@ public class Controlador {
         vistaUsuarioPremium.pagar(costo);
     }
 
+    /**
+     * Encuentra el batido que desea el cliente regular
+     * @param opcion opcion de batido.
+     */
     public void realizaCompraBatidoRegular(int opcion){
         Iterator<Batido> itComida = sigmaMeal.iteradorBatidosPredeterminados();
         double costo = 0;
@@ -168,6 +217,10 @@ public class Controlador {
         vistaUsuarioRegular.pagar(costo);
     }
 
+    /**
+     * Encuentra la comida que desea el cliente regular
+     * @param opcion opcion de comida.
+     */
     public void realizaCompraComidaRegular(int opcion) {
         Iterator<Batido> itComida = sigmaMeal.iteradorComidasPredeterminadas();
         double costo = 0;
@@ -178,6 +231,13 @@ public class Controlador {
         vistaUsuarioRegular.pagar(costo);
     }
 
+    /**
+     * Valida con el modelo el número de cuenta y el nip del cliente y procede a hacer el pago.
+     * @param pago costo.
+     * @param noCuenta numero de cuenta del cliente.
+     * @param nip nip del cliente.
+     * @return si fue posible realizar el pago.
+     */
     public boolean pagarPremium(double pago, long noCuenta, String nip) {
         ICuenta cuentaActual = sigmaMeal.getClienteActual().getCuenta();
         if (!cuentaActual.validarCuenta(noCuenta, nip)) {
@@ -194,35 +254,62 @@ public class Controlador {
         return true;
     }
 
+    /**
+     * Añade las estrellas tras una compra.
+     * @param n numero de estrellas.
+     */
     public void agregaEstrellas(int n) {
         if (n <= 0)
             throw new IllegalArgumentException();
         this.sigmaMeal.getClienteActual().setEstrellas(this.sigmaMeal.getClienteActual().getEstrellas() + n);
     }
 
+    /**
+     * Regresa a la vista del menú principal.
+     */
     public void regresaMenuPrincipal() {
         vistaMenuPrincipal.vistaPrincipalMenu();
     }
 
+    /**
+     * Regresa al menú de opciones premium.
+     */
     public void regresaMenuDeOpcionesPremium(){
         vistaUsuarioPremium.menuPremium();
     }
 
+    /**
+     * Regresa al menú de opciones regular.
+     */
     public void regresaMenuDeOpcionesRegular(){
         vistaUsuarioRegular.menuRegular();
     }
 
+    /**
+     * Arma un batido personalizado.
+     * @param leche chiclocentro del batido.
+     * @return batido personalzado.
+     */
     public Batido armaBatido(int leche){
         Batido batido = sigmaMeal.armaBatido(leche);
         return batido;
         
     }
 
+    /**
+     * Arma una comida personalizada.
+     * @param carbo chiclocentro de la comida.
+     * @return comida personalizada.
+     */
     public Batido armaComida(int carbo){ 
         Batido comida =  new AdapterBatido(sigmaMeal.armaComida(carbo));
         return comida;
     }
 
+    /**
+     * Asigna una consulta medica  al usuario
+     * @param consulta consulta médica.
+     */
     public void asignaConsulta(boolean consulta){
         sigmaMeal.asignaConsulta(consulta);
     }
