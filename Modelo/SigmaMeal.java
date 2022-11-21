@@ -12,6 +12,16 @@ import java.util.Scanner;
 import Cliente.Cliente;
 import Cliente.Cuenta;
 import Productos.Alimentos.AdapterBatido;
+import Productos.Alimentos.Comida;
+import Productos.Alimentos.Ingredientes.Carbos.Arroz;
+import Productos.Alimentos.Ingredientes.Carbos.Lentejas;
+import Productos.Alimentos.Ingredientes.Carbos.Pasta;
+import Productos.Alimentos.Ingredientes.Proteinas.Atun;
+import Productos.Alimentos.Ingredientes.Proteinas.Bistec;
+import Productos.Alimentos.Ingredientes.Proteinas.Pollo;
+import Productos.Alimentos.Ingredientes.Verduras.Brocoli;
+import Productos.Alimentos.Ingredientes.Verduras.Calabaza;
+import Productos.Alimentos.Ingredientes.Verduras.Chayote;
 import Productos.Alimentos.Predeterminadas.Carnivoro;
 import Productos.Alimentos.Predeterminadas.Ligero;
 import Productos.Alimentos.Predeterminadas.Tradicional;
@@ -42,7 +52,7 @@ public class SigmaMeal {
     }
 
     public void registrarClientes(Cuenta[] cuentas) {
-        Hashtable<String,Cliente> clientes = new Hashtable<String,Cliente>();
+        Hashtable<String, Cliente> clientes = new Hashtable<String, Cliente>();
         clientes.put("Gonzalo777", new Cliente("Gonzalo777", "gonzalito123", "Gonzalo", 34, 170, 76.5, cuentas[0], 28));
         clientes.put("Mar123", new Cliente("Mar123", "mar0217", "Maria", 19, 176, 70.1, cuentas[1], 100));
         clientes.put("TimiPro", new Cliente("TimiPro", "tim123", "Timi", 18, 180, 98.3, cuentas[2], 200));
@@ -57,12 +67,12 @@ public class SigmaMeal {
         }
     }
 
-    public Cliente getClienteActual(){
+    public Cliente getClienteActual() {
         return this.actual;
     }
 
-    public void setClienteActual(Cliente c){
-        if(c == null)
+    public void setClienteActual(Cliente c) {
+        if (c == null)
             throw new NullPointerException();
         this.actual = c;
     }
@@ -75,12 +85,12 @@ public class SigmaMeal {
         return cuentas;
     }
 
-    public Hashtable<String,Cliente> leerClientes() {
-        Hashtable<String,Cliente> listaClientes=null;
+    public Hashtable<String, Cliente> leerClientes() {
+        Hashtable<String, Cliente> listaClientes = null;
         try {
             ObjectInputStream recuperarCLientes = new ObjectInputStream(
                     new FileInputStream("RegistroClientes/listaEmpleados.txt"));
-            listaClientes = (Hashtable<String,Cliente>) recuperarCLientes.readObject();
+            listaClientes = (Hashtable<String, Cliente>) recuperarCLientes.readObject();
             recuperarCLientes.close();
         } catch (Exception e) {
             System.out.println("Error al leer clientes " + e);
@@ -88,7 +98,7 @@ public class SigmaMeal {
         return listaClientes;
     }
 
-    public static Iterator<Batido> iteradorComidasPredeterminadas(){
+    public static Iterator<Batido> iteradorComidasPredeterminadas() {
         LinkedList<Batido> temp = new LinkedList<>();
         temp.add(new AdapterBatido(new Carnivoro()));
         temp.add(new AdapterBatido(new Ligero()));
@@ -96,7 +106,7 @@ public class SigmaMeal {
         return temp.iterator();
     }
 
-    public static Iterator<Batido> iteradorBatidosPredeterminados(){
+    public static Iterator<Batido> iteradorBatidosPredeterminados() {
         LinkedList<Batido> temp = new LinkedList<>();
         temp.add(new LaBarbara());
         temp.add(new LaCoqueta());
@@ -104,7 +114,7 @@ public class SigmaMeal {
         return temp.iterator();
     }
 
-    public Batido armaBatido(int leche){
+    public Batido armaBatido(int leche) {
         switch (leche) {
             case 1:
                 LecheDeslactosada deslactosada = new LecheDeslactosada();
@@ -120,20 +130,20 @@ public class SigmaMeal {
         }
     }
 
-    public Batido seleccionaScoop(Batido batido){
+    public Batido seleccionaScoop(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
             try {
                 System.out.println("Ahora, selecciona el Scoop de tu preferencia.\n"
-                + "1.- Chocolate.\n"
-                + "2.- Fresa.\n"
-                + "3.- Vainilla.");
+                        + "1.- Chocolate.\n"
+                        + "2.- Fresa.\n"
+                        + "3.- Vainilla.");
                 String entradaScoop = entrada.nextLine();
                 int opScoop = Integer.parseInt(entradaScoop);
                 if (opScoop >= 1 && opScoop <= 3) {
                     if (opScoop == 1) {
                         batidoEnPreparacion = new Chocolate(batidoEnPreparacion);
-                    } else if (opScoop == 2){
+                    } else if (opScoop == 2) {
                         batidoEnPreparacion = new Fresa(batidoEnPreparacion);
                     } else {
                         batidoEnPreparacion = new Vainilla(batidoEnPreparacion);
@@ -144,52 +154,52 @@ public class SigmaMeal {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Entrada inválida, intentalo de nuevo.");
-            }   
+            }
         }
     }
 
-    public Batido seleccionFruta(Batido batido){
+    public Batido seleccionFruta(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
             try {
                 System.out.println("Ahora, selecciona la fruta de tu preferencia.\n"
-                + "1.- Fresa Natural.\n"
-                + "2.- Mamey.\n"
-                + "3.- Plátano.");
+                        + "1.- Fresa Natural.\n"
+                        + "2.- Mamey.\n"
+                        + "3.- Plátano.");
                 String entradaScoop = entrada.nextLine();
                 int opScoop = Integer.parseInt(entradaScoop);
                 if (opScoop >= 1 && opScoop <= 3) {
                     if (opScoop == 1) {
                         batidoEnPreparacion = new FresaNatural(batidoEnPreparacion);
-                    } else if (opScoop == 2){
+                    } else if (opScoop == 2) {
                         batidoEnPreparacion = new Mamey(batidoEnPreparacion);
                     } else {
                         batidoEnPreparacion = new Platano(batidoEnPreparacion);
                     }
-                    return seleccionFruta(batidoEnPreparacion);
+                    return seleccionaCereal(batidoEnPreparacion);
                 } else {
                     System.out.println("Opción inexistente, intentalo de nuevo por favor.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Entrada inválida, intentalo de nuevo.");
-            }   
+            }
         }
     }
 
-    public Batido seleccionaCereal(Batido batido){
+    public Batido seleccionaCereal(Batido batido) {
         Batido batidoEnPreparacion = batido;
         while (true) {
             try {
                 System.out.println("Ahora, selecciona el cereal de tu preferencia.\n"
-                + "1.- Amaranto.\n"
-                + "2.- Avena.\n"
-                + "3.- Granola.");
+                        + "1.- Amaranto.\n"
+                        + "2.- Avena.\n"
+                        + "3.- Granola.");
                 String entradaScoop = entrada.nextLine();
                 int opScoop = Integer.parseInt(entradaScoop);
                 if (opScoop >= 1 && opScoop <= 3) {
                     if (opScoop == 1) {
                         batidoEnPreparacion = new Amaranto(batidoEnPreparacion);
-                    } else if (opScoop == 2){
+                    } else if (opScoop == 2) {
                         batidoEnPreparacion = new Avena(batidoEnPreparacion);
                     } else {
                         batidoEnPreparacion = new Granola(batidoEnPreparacion);
@@ -200,9 +210,88 @@ public class SigmaMeal {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Entrada inválida, intentalo de nuevo.");
-            }   
+            }
         }
     }
 
-    
+    public Comida armaComida(int carbo) {
+        switch (carbo) {
+            case 1:
+                Arroz arroz = new Arroz();
+                return eligeProteina(arroz);
+            case 2:
+                Lentejas lentejas = new Lentejas();
+                return eligeProteina(lentejas);
+            case 3:
+                Pasta pasta = new Pasta();
+                return eligeProteina(pasta);
+            default:
+                throw new IllegalArgumentException("Elección de carbohidrato");
+        }
+    }
+
+    public Comida eligeProteina(Comida comida) {
+        Comida comidaEnPreparacion = comida;
+        while (true) {
+            try {
+                System.out.println("Ahora, selecciona la proteína de tu preferencia.\n"
+                        + "1.- Atún.\n"
+                        + "2.- Bistec.\n"
+                        + "3.- Pollo.");
+                String entradaProte = entrada.nextLine();
+                int opProte = Integer.parseInt(entradaProte);
+                if (opProte >= 1 && opProte <= 3) {
+                    if (opProte == 1) {
+                        comidaEnPreparacion = new Atun(comidaEnPreparacion);
+                    } else if (opProte == 2) {
+                        comidaEnPreparacion = new Bistec(comidaEnPreparacion);
+                    } else {
+                        comidaEnPreparacion = new Pollo(comidaEnPreparacion);
+                    }
+                    return seleccionaVerduras(comidaEnPreparacion);
+                } else {
+                    System.out.println("Opción inexistente, intentalo de nuevo por favor.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, intentalo de nuevo.");
+            }
+        }
+    }
+
+    public Comida seleccionaVerduras(Comida comida) {
+        Comida comidaEnPreparacion = comida;
+        while (true) {
+            try {
+                System.out.println("Ahora, selecciona la verdura de tu preferencia.\n"
+                        + "1.- Brocolí.\n"
+                        + "2.- Calabaza.\n"
+                        + "3.- Chayote.");
+                String entradaVerdura = entrada.nextLine();
+                int opVerdura = Integer.parseInt(entradaVerdura);
+                if (opVerdura >= 1 && opVerdura <= 3) {
+                    if (opVerdura == 1) {
+                        comidaEnPreparacion = new Brocoli(comidaEnPreparacion);
+                    } else if (opVerdura == 2) {
+                        comidaEnPreparacion = new Calabaza(comidaEnPreparacion);
+                    } else {
+                        comidaEnPreparacion = new Chayote(comidaEnPreparacion);
+                    }
+                    return comidaEnPreparacion;
+                } else {
+                    System.out.println("Opción inexistente, intentalo de nuevo por favor.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida, intentalo de nuevo.");
+            }
+        }
+    }
+
+    public boolean ExisteConsulta(){
+        return actual.getCitaMedica();
+    }
+
+    public void asignaConsulta(boolean consulta){
+        actual.setCitaMedica(consulta);
+    }
+
 }

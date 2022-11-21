@@ -15,7 +15,7 @@ public class Cliente implements Serializable {
     private double peso;
     private ICuenta cuentaAsociada; // Cuenta de puntos asociado.
     private int estrellas; // Por cada 10 pesos es una estrella.
-    private boolean citaMedica;
+    private boolean citaMedica = false;
 
     /**
      * Constructor de un Cliente
@@ -62,5 +62,13 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return nombreUsuario + " " + nombre + " " + edad + " " + estatura + " " + peso + " " + estrellas;
+    }
+
+    public void setCitaMedica(boolean hayCita){
+        this.citaMedica = hayCita;
+    }
+
+    public boolean getCitaMedica(){
+        return this.citaMedica;
     }
 }

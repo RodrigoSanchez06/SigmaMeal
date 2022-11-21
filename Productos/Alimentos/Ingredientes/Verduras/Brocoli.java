@@ -34,7 +34,7 @@ public class Brocoli extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 25 + comida.cost();
+        return 15 + comida.cost();
     }
 
     /**

@@ -34,7 +34,7 @@ public class Atun extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 25 + comida.cost();
+        return 34 + comida.cost();
     }
 
     /**

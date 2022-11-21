@@ -7,6 +7,8 @@ import java.util.Scanner;
 import Cliente.Cliente;
 import Cliente.ICuenta;
 import Modelo.SigmaMeal;
+import Productos.Alimentos.AdapterBatido;
+import Productos.Alimentos.Comida;
 import Productos.Batido.Batido;
 import Vista.VistaMenuPrincipal;
 import Vista.VistaUsuarioPremium;
@@ -47,11 +49,10 @@ public class Controlador {
                 vistaUsuarioPremium.verCualquierMenuAlimento(devolverMenuDeProducto(2), 2);
                 break;
             case 3:
-                vistaUsuarioPremium.armaBatido();
-                // Armar tu propió batido (aun pendiente no se como implementarlo)
+                vistaUsuarioPremium.armaTuBatido();
                 break;
             case 4:
-                // Arma tu propia comida (aun pendiente no se como implementarlo)
+                vistaUsuarioPremium.armaComida();
                 break;
             case 5:
                 vistaUsuarioPremium.compraBatidosPredeterminados();
@@ -60,7 +61,7 @@ public class Controlador {
                 vistaUsuarioPremium.compraComidaPredeterminada();
                 break;
             case 7:
-                vistaUsuarioPremium.realizaConsulta(true);
+                vistaUsuarioPremium.realizaConsulta(sigmaMeal.ExisteConsulta());
                 break;
             case 8:
                 vistaUsuarioPremium.consultaEstrellas();
@@ -79,19 +80,20 @@ public class Controlador {
     public void ejecutarOpcionDeMenuRegular(int opcion) {
         switch (opcion) {
             case 1:
-                devolverMenuDeProducto(1);
+                vistaUsuarioRegular.verCualquierMenuAlimento(devolverMenuDeProducto(1), 1);
                 break;
             case 2:
-                devolverMenuDeProducto(2);
+                vistaUsuarioRegular.verCualquierMenuAlimento(devolverMenuDeProducto(2), 2);
                 break;
             case 3:
-
+                vistaUsuarioRegular.compraBatidosPredeterminados();
                 break;
             case 4:
-
+                vistaUsuarioRegular.compraComidaPredeterminada();
                 break;
             case 5:
-                // Realiza una consulta médica.
+                vistaUsuarioRegular.realizaConsulta();
+                break;
             case 6:
                 regresaMenuPrincipal();
                 break;
@@ -125,10 +127,6 @@ public class Controlador {
         vistaMenuPrincipal.vistaPrincipalMenu();
     }
 
-    public boolean consultaMedica(boolean costo) {
-        return true;
-    }
-
     public int consultaEstrellas() {
         return sigmaMeal.getClienteActual().getEstrellas();
     }
@@ -160,6 +158,26 @@ public class Controlador {
         vistaUsuarioPremium.pagar(costo);
     }
 
+    public void realizaCompraBatidoRegular(int opcion){
+        Iterator<Batido> itComida = sigmaMeal.iteradorBatidosPredeterminados();
+        double costo = 0;
+        for (int i = 0; i < opcion; i++) {
+            Batido batidoPagar = itComida.next();
+            costo = batidoPagar.cost();
+        }
+        vistaUsuarioRegular.pagar(costo);
+    }
+
+    public void realizaCompraComidaRegular(int opcion) {
+        Iterator<Batido> itComida = sigmaMeal.iteradorComidasPredeterminadas();
+        double costo = 0;
+        for (int i = 0; i < opcion; i++) {
+            Batido batidoPagar = itComida.next();
+            costo = batidoPagar.cost();
+        }
+        vistaUsuarioRegular.pagar(costo);
+    }
+
     public boolean pagarPremium(double pago, long noCuenta, String nip) {
         ICuenta cuentaActual = sigmaMeal.getClienteActual().getCuenta();
         if (!cuentaActual.validarCuenta(noCuenta, nip)) {
@@ -182,10 +200,6 @@ public class Controlador {
         this.sigmaMeal.getClienteActual().setEstrellas(this.sigmaMeal.getClienteActual().getEstrellas() + n);
     }
 
-    public void pagarRegular() {
-
-    }
-
     public void regresaMenuPrincipal() {
         vistaMenuPrincipal.vistaPrincipalMenu();
     }
@@ -198,12 +212,18 @@ public class Controlador {
         vistaUsuarioRegular.menuRegular();
     }
 
-    public void armaBatido(int leche){
-        Batido batdio = sigmaMeal.armaBatido(leche);
-        String descripcion = "Tu batido";
+    public Batido armaBatido(int leche){
+        Batido batido = sigmaMeal.armaBatido(leche);
+        return batido;
+        
     }
 
-    public void armaComida(){
-        
+    public Batido armaComida(int carbo){ 
+        Batido comida =  new AdapterBatido(sigmaMeal.armaComida(carbo));
+        return comida;
+    }
+
+    public void asignaConsulta(boolean consulta){
+        sigmaMeal.asignaConsulta(consulta);
     }
 }

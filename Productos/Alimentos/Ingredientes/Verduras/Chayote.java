@@ -34,7 +34,7 @@ public class Chayote extends Ingrediente {
      */
     @Override
     public double cost() {
-        return 25 + comida.cost();
+        return 16 + comida.cost();
     }
 
     /**

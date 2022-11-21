@@ -23,7 +23,7 @@ public class Pasta extends Comida {
      */
     @Override
     public double cost() {
-        return 25;
+        return 21.4;
     }
 
     /**
